@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen py-10 px-4">
+
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+        💼 Experience
+      </h2>
+      <p class="text-gray-500 mt-2">
+        Pengalaman kerja & project saya
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative border-l-4 border-blue-500 pl-6 space-y-8">
+
+      <!-- Empty State (Belum ada pengalaman kerja) -->
+      <div class="bg-white p-6 rounded-2xl shadow-md text-center card-hover relative">
+
+        <!-- Dot -->
+        <div class="absolute -left-3 top-6 w-6 h-6 bg-gray-400 rounded-full border-4 border-white"></div>
+
+        <!-- Icon -->
+
+        <!-- Text -->
+        <h3 class="text-lg font-semibold text-gray-700">
+          Host live 
+        </h3>
+
+        <p class="text-gray-500 text-sm mt-2">
+          <li>Membawakan live streaming untuk promosi produk</li>
+    <li>Berinteraksi langsung dengan audience</li>
+    <li>Meningkatkan penjualan melalui komunikasi persuasif</li>
+    <li>Mengelola waktu dan alur live secara efektif</li>
+        </p>
+
+        <!-- Badge -->
+        <span class="inline-block mt-4 text-xs bg-gray-200 text-gray-600 px-3 py-1 rounded-full">
+          Fresh Graduate / Student
+        </span>
+
+      </div>
+
+      <!-- Contoh Project (biar tetap terlihat profesional) -->
+      <div class="bg-white p-5 rounded-2xl shadow-md card-hover relative">
+
+        <div class="absolute -left-3 top-6 w-6 h-6 bg-blue-500 rounded-full border-4 border-white"></div>
+
+        <h3 class="text-lg font-semibold text-gray-800">
+          Project Website CRUD
+        </h3>
+
+        <p class="text-gray-600 text-sm mt-1">
+          Membuat aplikasi pengelolaan data menggunakan PHP dan MySQL.
+        </p>
+
+        <span class="inline-block mt-3 text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full">
+          2025
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

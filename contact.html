@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Custom Styling */
+    .input-style{
+      transition: all 0.3s ease;
+    }
+
+    .input-style:focus{
+      border-color:#3b82f6;
+      box-shadow:0 0 0 2px rgba(59,130,246,0.2);
+      outline:none;
+    }
+
+    .card-hover{
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+
+  <div class="w-full max-w-lg">
+
+    <!-- Card -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover">
+
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+        📩 Contact Me
+      </h2>
+
+      <form id="contactForm" class="space-y-4">
+
+        <!-- Nama -->
+        <div>
+          <label class="block text-sm text-gray-600 mb-1">Nama</label>
+          <input type="text" id="nama"
+            class="w-full border rounded-lg px-3 py-2 input-style"
+            placeholder="Masukkan nama">
+          <div class="text-red-500 text-sm mt-1" id="errNama"></div>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm text-gray-600 mb-1">Email</label>
+          <input type="email" id="email"
+            class="w-full border rounded-lg px-3 py-2 input-style"
+            placeholder="Masukkan email">
+          <div class="text-red-500 text-sm mt-1" id="errEmail"></div>
+        </div>
+
+        <!-- Pesan -->
+        <div>
+          <label class="block text-sm text-gray-600 mb-1">Pesan</label>
+          <textarea id="pesan" rows="4"
+            class="w-full border rounded-lg px-3 py-2 input-style"
+            placeholder="Tulis pesan kamu..."></textarea>
+          <div class="text-red-500 text-sm mt-1" id="errPesan"></div>
+        </div>
+
+        <!-- Button -->
+        <button type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition duration-300">
+          Kirim Pesan
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+<script>
+$(document).ready(function(){
+
+  // ======================
+  // LOAD DATA LOCAL STORAGE
+  // ======================
+  $('#nama').val(localStorage.getItem('nama'));
+  $('#email').val(localStorage.getItem('email'));
+  $('#pesan').val(localStorage.getItem('pesan'));
+
+  // ======================
+  // VALIDASI FORM
+  // ======================
+  $('#contactForm').submit(function(e){
+    e.preventDefault();
+
+    let nama = $('#nama').val();
+    let email = $('#email').val();
+    let pesan = $('#pesan').val();
+    let valid = true;
+
+    $('.text-red-500').text('');
+
+    if(nama === ''){
+      $('#errNama').text('Nama wajib diisi');
+      valid = false;
+    }
+
+    if(email === '' || !email.includes('@')){
+      $('#errEmail').text('Email tidak valid');
+      valid = false;
+    }
+
+    if(pesan.length < 5){
+      $('#errPesan').text('Pesan minimal 5 karakter');
+      valid = false;
+    }
+
+    // ======================
+    // SIMPAN DATA
+    // ======================
+    if(valid){
+      localStorage.setItem('nama', nama);
+      localStorage.setItem('email', email);
+      localStorage.setItem('pesan', pesan);
+
+      alert('Pesan berhasil disimpan!');
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
